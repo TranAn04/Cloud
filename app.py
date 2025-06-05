@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  
 
-@app.route('/about')
+@app.route('/api/about')
 def about():
     return jsonify({
         "name": "Trần Hoài An",
