@@ -6,7 +6,7 @@ const API_URL = process.env.API_URL || 'http://localhost:5000/api';
 
 app.get('/', async (req, res) => {
   try {
-    const response = await fetch(`${API_URL}/about`);
+    const response = await fetch(`${API_URL}/api/about`);
     const data = await response.json();
 
     const html = `
