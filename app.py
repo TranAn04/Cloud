@@ -2,17 +2,16 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
 
-@app.route('/about')
-def about():
-    return jsonify({
-        "name": "Trần Hoài An",
-        "job": "Lập trình viên",
-        "bio": "Tôi thích học Flask và phát triển phần mềm."
-    })
+@app.route('/info', methods=['GET'])
+def get_info():
+    data = {
+        "name": "Nguyễn Văn A",
+        "email": "nguyenvana@example.com",
+        "skills": ["Python", "Flask", "API", "Docker"]
+    }
+    return jsonify(data)
 
-import os
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=5000)
