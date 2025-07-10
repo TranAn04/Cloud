@@ -4,25 +4,26 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TranAn04/Cloud.git'
+                echo 'Code already checked out by SCM'
             }
         }
 
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Building...'
+                sh 'pip install -r requirements.txt'
             }
         }
 
-        stage('Test') {
+        stage('Run Tests') {
             steps {
-                echo 'Testing...'
+                echo 'Testing... (you can add pytest or unittest here)'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Flask App') {
             steps {
-                echo 'Deploying...'
+                echo 'Running Flask app'
+                sh 'nohup python3 app.py &'
             }
         }
     }
